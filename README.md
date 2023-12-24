@@ -1,3 +1,4 @@
+<pre>
 1) Extract data like
         * Transaction
         * Users
@@ -34,3 +35,4 @@
 
 7) Visualization has
         - India map where the transactions & users mapped to the respective states
+</pre>
