@@ -180,7 +180,7 @@ class dataExtract:
                                     metric = entry['metric']
                                     entity = {
                                         'entity': key,
-                                        'entityName': entry['entityName'].capitalize(),
+                                        'entityName': entry['entityName'].capitalize() if 'entityName' in entry else None,
                                         'count': metric['count'],
                                         'amount': metric['amount'],
                                         'fileName': int(item.split('.')[0]),
@@ -225,7 +225,7 @@ class dataExtract:
                                 for entry in values:
                                     entity = {
                                         'entityType': key,
-                                        'entityName': entry['name'].capitalize(),
+                                        'entityName': entry['name'].capitalize() if ('name' in entry) and (entry['name'] is not None) else None,
                                         'registeredUsers': entry['registeredUsers'],
                                         'fileName': int(item.split('.')[0]),
                                         'stateFolder': None if item_path.split('/')[-3] == 'india' else item_path.split('/')[-3].replace('-', ' ').capitalize(),
