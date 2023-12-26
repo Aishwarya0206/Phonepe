@@ -332,47 +332,49 @@ def select_stms():
         return False
 
 if __name__ == '__main__':
+    # DB connection
     sql = {"host": "localhost", "user": "root", "password": "Password123#@!","database":"Phonepe"}
     sql_conn = data_mapping_with_transfer(sql)
     connect = sql_conn.connect_db()
     create_table_ddl = sql_conn.execute_ddl(connect['cursor'], connect['conn'])
 
+    #Check for the records available in DB
     if(select_stms()):
         handler = dataHandler()
         execute_insert = handler.callToDB(sql_conn, connect)
     
 
-    # Define the root directory path
-    
+    #Select from Aggregated Transform 
     agg_transform = sql_conn.select_from_AggregatedTransforms(connect['cursor'], connect['conn'])
     print(agg_transform.info())
     print(agg_transform.head())
 
-    
+    #Select from Aggregated Users 
     agg_user = sql_conn.select_from_AggregatedUsers(connect['cursor'], connect['conn'])
     print(agg_user.info())
     print(agg_user.head())
 
-    
+    #Select from Mapped Transform 
     map_transform = sql_conn.select_from_MappedTransforms(connect['cursor'], connect['conn'])
     print(map_transform.info())
     print(map_transform.head())
 
-    
+    #Select from Mapped Users 
     map_user = sql_conn.select_from_MappedUsers(connect['cursor'], connect['conn'])
     print(map_user.info())
     print(map_user.head())
 
-    
+    #Select from Top Transform 
     top_transform = sql_conn.select_from_TopTransforms(connect['cursor'], connect['conn'])
     print(top_transform.info())
     print(top_transform.head())
 
-    
+    #Select from Top Users 
     top_user = sql_conn.select_from_TopUsers(connect['cursor'], connect['conn'])
     print(top_user.info())
     print(top_user.head())
 
+    #Based on the choosen page will display the contents
     page_names_to_funcs = {
         "About": intro,
         "Payments": payments,
