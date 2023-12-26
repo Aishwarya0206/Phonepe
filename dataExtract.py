@@ -4,8 +4,11 @@ import datetime
 import pandas as pd
 
 class dataExtract:
+    #Constructor
     def __init__(self):
         pass
+
+    #Extract Data from respective folders 
 
     def process_agg_transaction_files(self, directory):
         combined_data = pd.DataFrame()  # Initialize an empty DataFrame

@@ -2,15 +2,17 @@ import mysql.connector
 import datetime
 import pandas as pd
 
-#Transfer the data to mysql a relational db
+#Transfer the data to mysql a relational db as an input / streamlit as a output
 
 class data_mapping_with_transfer:
+    #Constructor
     def __init__(self, sql):
         self.host = sql["host"]
         self.user = sql["user"]
         self.password = sql["password"]
         self.database = sql["database"]
 
+    #Connection to database
     def connect_db(self):
         try:
             db_conn = mysql.connector.connect(host=self.host,user=self.user,password=self.password,database=self.database,auth_plugin='mysql_native_password')
@@ -19,6 +21,7 @@ class data_mapping_with_transfer:
         except Exception as e:
             return ("Error connecting to MySQL database: "+str(e))
 
+    #Queries for processing
     def execute_ddl(self, cursor_db, db_conn):
         try:
             agg_transform = '''CREATE TABLE IF NOT EXISTS AggregatedTransforms (FromTimestamp DATETIME, ToTimestamp DATETIME, TypeOfPaymentCategory VARCHAR(200), NoOfTransactions BIGINT, TotalValue FLOAT, Quarter INT, State VARCHAR(255), Year INT)'''
