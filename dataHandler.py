@@ -2,9 +2,11 @@ from dataExtract import dataExtract
 from data_mapping_with_transfer import data_mapping_with_transfer
 
 class dataHandler:
+    #Constructor
     def __init__(self):
         pass
-
+    
+    #Extract data from the respective directory and insert it to the table
     def callToDB(self, sql_conn, connect):
         try:
             extract = dataExtract()
