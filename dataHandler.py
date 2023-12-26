@@ -30,4 +30,4 @@ class dataHandler:
             insert_top_user = sql_conn.insert_top_users(connect['cursor'], connect['conn'], top_user_df)
             return "Data imported successfully"
         except Exception as e:
-            print(f"Error processing callToDB: {e}")
+            return(f"Error processing callToDB: {e}")
