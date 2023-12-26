@@ -347,32 +347,32 @@ if __name__ == '__main__':
     #Select from Aggregated Transform 
     agg_transform = sql_conn.select_from_AggregatedTransforms(connect['cursor'], connect['conn'])
     print(agg_transform.info())
-    print(agg_transform.head())
+    #print(agg_transform.head())
 
     #Select from Aggregated Users 
     agg_user = sql_conn.select_from_AggregatedUsers(connect['cursor'], connect['conn'])
     print(agg_user.info())
-    print(agg_user.head())
+    #print(agg_user.head())
 
     #Select from Mapped Transform 
     map_transform = sql_conn.select_from_MappedTransforms(connect['cursor'], connect['conn'])
     print(map_transform.info())
-    print(map_transform.head())
+    #print(map_transform.head())
 
     #Select from Mapped Users 
     map_user = sql_conn.select_from_MappedUsers(connect['cursor'], connect['conn'])
     print(map_user.info())
-    print(map_user.head())
+    #print(map_user.head())
 
     #Select from Top Transform 
     top_transform = sql_conn.select_from_TopTransforms(connect['cursor'], connect['conn'])
     print(top_transform.info())
-    print(top_transform.head())
+    #print(top_transform.head())
 
     #Select from Top Users 
     top_user = sql_conn.select_from_TopUsers(connect['cursor'], connect['conn'])
     print(top_user.info())
-    print(top_user.head())
+    #print(top_user.head())
 
     #Based on the choosen page will display the contents
     page_names_to_funcs = {

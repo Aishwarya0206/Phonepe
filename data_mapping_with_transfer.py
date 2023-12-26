@@ -187,7 +187,7 @@ class data_mapping_with_transfer:
 
     def sum_of_AggregatedTransforms(self, cursor_db, db_conn, year, quarter, TypeOfPaymentCategory):
         try:
-            print(TypeOfPaymentCategory)
+            #print(TypeOfPaymentCategory)
             payment_categories = [category.strip() for category in TypeOfPaymentCategory.split(',')]
         
             # Create placeholders for each value in payment_categories
@@ -197,7 +197,7 @@ class data_mapping_with_transfer:
             params.extend(payment_categories)
 
             cursor_db.execute(select_query, params)
-            print(select_query)
+            #print(select_query)
             sum_of_transactions = cursor_db.fetchone()
             #self.close_connection(cursor_db, db_conn)
             return sum_of_transactions[0]
@@ -206,7 +206,7 @@ class data_mapping_with_transfer:
 
     def total_payment_value(self, cursor_db, db_conn, year, quarter, TypeOfPaymentCategory):
         try:
-            print(TypeOfPaymentCategory)
+            #print(TypeOfPaymentCategory)
             payment_categories = [category.strip() for category in TypeOfPaymentCategory.split(',')]
         
             # Create placeholders for each value in payment_categories
@@ -216,7 +216,7 @@ class data_mapping_with_transfer:
             params.extend(payment_categories)
 
             cursor_db.execute(select_query, params)
-            print(select_query)
+            #print(select_query)
             total_payment_value = cursor_db.fetchone()
             #self.close_connection(cursor_db, db_conn)
             return total_payment_value[0]
@@ -225,7 +225,7 @@ class data_mapping_with_transfer:
 
     def average_transaction_value(self, cursor_db, db_conn, year, quarter, TypeOfPaymentCategory):
         try:
-            print(TypeOfPaymentCategory)
+            #print(TypeOfPaymentCategory)
             payment_categories = [category.strip() for category in TypeOfPaymentCategory.split(',')]
         
             # Create placeholders for each value in payment_categories
@@ -235,9 +235,9 @@ class data_mapping_with_transfer:
             params.extend(payment_categories)
 
             cursor_db.execute(select_query, params)
-            print(select_query)
+            #print(select_query)
             average_transaction_value = cursor_db.fetchone()
-            print(average_transaction_value)
+            #print(average_transaction_value)
             #self.close_connection(cursor_db, db_conn)
             return average_transaction_value[0]
         except Exception as e:
@@ -254,9 +254,9 @@ class data_mapping_with_transfer:
             params.extend(payment_categories)
 
             cursor_db.execute(select_query, params)
-            print(select_query)
+            #print(select_query)
             get_payment_value_by_category = pd.DataFrame(cursor_db.fetchall(), columns = ['Category', 'No. of Transaction'])
-            print(get_payment_value_by_category)
+            #print(get_payment_value_by_category)
             #self.close_connection(cursor_db, db_conn)
             return get_payment_value_by_category
         except Exception as e:
@@ -316,7 +316,7 @@ class data_mapping_with_transfer:
             params = [year, quarter]
 
             cursor_db.execute(select_query, params)
-            print(select_query)
+            #print(select_query)
             sum_of_AggregatedUsers = cursor_db.fetchone()
             return sum_of_AggregatedUsers[0]
         except Exception as e:
@@ -328,7 +328,7 @@ class data_mapping_with_transfer:
             params = [year, quarter]
 
             cursor_db.execute(select_query, params)
-            print(select_query)
+            #print(select_query)
             sum_of_AppOpenUsers = cursor_db.fetchone()
             return sum_of_AppOpenUsers[0]
         except Exception as e:
